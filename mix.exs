@@ -14,7 +14,7 @@ defmodule PlugCowboy2Example.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :cowboy, :plug],
+    [applications: [:logger, :ranch, :cowlib, :cowboy, :plug, :plug_cowboy2],
      mod: {PlugCowboy2Example, []}]
   end
 
@@ -28,8 +28,11 @@ defmodule PlugCowboy2Example.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:plug, "~> 1.3.0"},
-     {:cowboy, "~> 1.0"}]
+    [{:plug_cowboy2, github: "voicelayer/plug_cowboy2"},
+     {:ranch, github: "ninenines/ranch", ref: "1.3.0", override: true},
+     {:cowlib, github: "ninenines/cowlib", ref: "master", override: true},
+     {:plug, "~> 1.3.0"},
+     {:cowboy, github: "ninenines/cowboy", ref: "2.0.0-pre.4", override: true}]
 
   end
 end

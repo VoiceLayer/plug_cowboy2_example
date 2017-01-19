@@ -23,9 +23,9 @@ defmodule PlugCowboy2Example do
 
     children = [
       # Define workers and child supervisors to be supervised
-      Plug.Adapters.Cowboy.child_spec(:https, PlugCowboy2Example.Router, [], [
+      Plug.Adapters.Cowboy2.child_spec(:https, PlugCowboy2Example.Router, [], [
         port: 4001, certfile: certfile, keyfile: keyfile]),
-      Plug.Adapters.Cowboy.child_spec(:http, PlugCowboy2Example.Router, [], [port: 4002])
+      Plug.Adapters.Cowboy2.child_spec(:http, PlugCowboy2Example.Router, [], [port: 4002])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
