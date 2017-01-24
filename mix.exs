@@ -29,10 +29,10 @@ defmodule PlugCowboy2Example.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:plug_cowboy2, github: "voicelayer/plug_cowboy2"},
-     {:ranch, github: "ninenines/ranch", ref: "1.3.0", override: true},
-     {:cowlib, github: "ninenines/cowlib", ref: "master", override: true},
+     {:ranch, github: "ninenines/ranch", ref: "1.3.0", override: true, manager: :rebar3},
+     {:cowlib, github: "ninenines/cowlib", ref: "master", override: true, manager: :rebar3},
      {:plug, "~> 1.3.0"},
-     {:cowboy, github: "ninenines/cowboy", ref: "2.0.0-pre.4", override: true}]
+     {:cowboy, github: "ninenines/cowboy", ref: "2.0.0-pre.4", override: true, manager: :rebar3}]
 
   end
 end
