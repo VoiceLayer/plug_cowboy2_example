@@ -32,7 +32,7 @@ defmodule PlugCowboy2Example.Mixfile do
      {:ranch, github: "ninenines/ranch", ref: "1.3.0", override: true, manager: :rebar3},
      {:cowlib, github: "ninenines/cowlib", ref: "master", override: true, manager: :rebar3},
      {:plug, "~> 1.3.0"},
-     {:cowboy, github: "ninenines/cowboy", ref: "2.0.0-pre.4", override: true, manager: :rebar3}]
+     {:cowboy, github: "ninenines/cowboy", ref: "2.0.0-pre.7", override: true, manager: :rebar3}]
 
   end
 end
