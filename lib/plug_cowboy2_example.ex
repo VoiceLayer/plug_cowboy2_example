@@ -22,22 +22,24 @@ defmodule PlugCowboy2Example do
     end
 
     children = [
-      # Define workers and child supervisors to be supervised
-      Plug.Adapters.Cowboy2.child_spec(:https, PlugCowboy2Example.Router, [], [
-        port: 4001, certfile: certfile, keyfile: keyfile]),
-      Plug.Adapters.Cowboy2.child_spec(:http, PlugCowboy2Example.Router, [], [port: 4002])
+      {Plug.Adapters.Cowboy2, scheme: :https, plug: PlugCowboy2Example.Router,
+        options: [port: 4001, certfile: certfile, keyfile: keyfile]},
+      {Plug.Adapters.Cowboy2, scheme: :http, plug: PlugCowboy2Example.Router,
+        options: [port: 4002]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
 
-    opts = [strategy: :one_for_one, name: PlugCowbot2Example.Supervisor]
+    opts = [strategy: :one_for_one, name: PlugCowboy2Example.Supervisor]
+
     {:ok, pid} = Supervisor.start_link(children, opts)
 
     Logger.info("""
     Running on https://localhost:4001/ \
     Please note you will need to accept the self-signed certificate
     """)
+
     Logger.info("""
     Running on http://localhost:4002/ This version will only work with a client \
     that supports HTTP/2 without HTTPS (most browsers require HTTPS)
